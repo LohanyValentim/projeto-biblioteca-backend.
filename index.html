@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terasteel Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <figure class="logo"><img src="./assets/logo.png" alt="Terasteel Bookstore"></figure>
+      <h1 id="title">Terasteel Bookstore</h1>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒 Carrinho (<span id="cart-count">0</span>)
+      </div>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#home" onclick="showSection('home')">Início</a></li>
+        <li><a href="#books" onclick="showSection('books')">Livros</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Seção Inicial -->
+    <section id="home" class="section active">
+      <h2>Bem-vindo à nossa Livraria Online!</h2>
+      <p>Descubra os melhores livros com os melhores preços. Navegue pelo nosso catálogo e adicione seus favoritos ao carrinho!</p>
+      <button onclick="showSection('books')" class="btn-primary">Ver Catálogo</button>
+    </section>
+
+    <!-- Seção de Livros -->
+    <section id="books" class="section">
+      <h2>Catálogo de Livros</h2>
+      <div id="books-grid" class="books-grid"></div>
+    </section>
+
+    <!-- Seção Admin
+    <section id="admin" class="section">
+      <h2>Administração</h2>
+      <div class="admin-form">
+        <h3>Adicionar/Editar Livro</h3>
+        <form id="book-form">
+          <input type="hidden" id="book-id">
+          <input type="text" id="book-name" placeholder="Nome do livro" required>
+          <input type="number" id="book-price" placeholder="Preço" step="0.01" required>
+          <textarea id="book-description" placeholder="Descrição" required></textarea>
+          <input type="number" id="book-stock" placeholder="Estoque" required>
+          <button type="submit">Salvar Livro</button>
+          <button type="button" onclick="clearForm()">Limpar</button>
+        </form>
+      </div>
+    </section>
+  </main> -->
+
+  <!-- Carrinho -->
+  <div id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Carrinho de Compras</h3>
+      <button onclick="toggleCart()" class="close-btn">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        Total: R$ <span id="cart-total">0.00</span>
+      </div>
+      <button onclick="checkout()" class="btn-primary">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Terasteel Bookstore. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
