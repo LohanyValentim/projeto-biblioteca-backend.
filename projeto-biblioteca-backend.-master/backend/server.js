@@ -1,20 +1,37 @@
 const express = require("express");
 const cors = require("cors");
+const initDatabase = require('./init-db');
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+// Middlewares
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
-// Rota teste para ver se o backend está funcionando
+// Rota teste
 app.get("/", (req, res) => {
   res.json({ mensagem: "Backend da Biblioteca Online funcionando!" });
 });
 
-// Importar rotas (vamos criar depois)
+// Rotas da API
 const livrosRoutes = require("./routes/livros");
 app.use("/livros", livrosRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+// Inicializar servidor
+async function startServer() {
+  try {
+    await initDatabase();
+    app.listen(PORT, () => {
+      console.log(`Servidor rodando na porta ${PORT}`);
+      console.log(`Acesse: http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Erro ao iniciar servidor:', error);
+  }
+}
+
+startServer();
