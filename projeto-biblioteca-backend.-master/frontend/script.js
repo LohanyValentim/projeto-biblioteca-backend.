@@ -26,7 +26,7 @@ function showSection(sectionId) {
 // Carregar livros do servidor
 async function loadBooks() {
     try {
-        const response = await fetch('livraria/routes/livros.js');
+        const response = await fetch('http://localhost:3000/livros');
         books = await response.json();
         displayBooks();
     } catch (error) {
@@ -38,7 +38,14 @@ async function loadBooks() {
             {id: 3, nome: '1984', preco: 35.00, descricao: 'Distopia de George Orwell', estoque: 15},
             {id: 4, nome: 'O homem mais rico da Babilônia', preco: 25.50, descricao: 'Clássico que ajuda a solucionar problemas finaceiros', estoque: 3},
             {id: 5, nome: 'Acuado, Escrevo!', preco: 30.00, descricao: 'Poesia brasileira', estoque: 1},
-            {id: 6, nome: 'Fortaleza Digital', preco: 40.00, descricao: 'Ficção científica da era digital', estoque: 1}
+            {id: 6, nome: 'Fortaleza Digital', preco: 40.00, descricao: 'Ficção científica da era digital', estoque: 1},
+            {id: 7, nome: 'Harry Potter e a pedra filosofal', preco: 25.00, descricao: 'Ficção', estoque: 2},
+            {id: 8, nome: 'Biblia', preco: 20.00, descricao: 'Livro sagrado', estoque: 5}, 
+            {id: 9, nome: 'JavaScript', preco: 35.00, descricao: 'Aprenda JavaScript', estoque: 3},
+            {id: 10, nome: 'CSS', preco: 25.50, descricao: 'CSS-3 Como estilizar seus sites', estoque: 5},
+            {id: 11, nome: 'Aprenda inglês para turismo', preco: 30.00, descricao: 'Didático de inglês', estoque: 1},
+            {id: 12, nome: 'Kimetsu no Yaiba vol1', preco: 20.00, descricao: 'Mangá', estoque: 1},
+
         ];
         displayBooks();
     }
