@@ -251,3 +251,19 @@ footer {
   }
   
 }
+.carousel-caption.d-none.d-md-block {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: solid;
+  border-radius: 15px;
+}
+.carousel-caption.d-none.d-md-block h5, .carousel-caption.d-none.d-md-block p {
+    color: darkblue;
+}
+.carousel-item img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  max-width: 100%;
+  padding-bottom: 100px;
+}
