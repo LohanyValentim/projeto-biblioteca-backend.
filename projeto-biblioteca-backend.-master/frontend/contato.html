@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato - Terasteel Bookstore</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <figure class="logo">
+        <a href="index.html"><img src="./assets/logo.png" alt="Terasteel Bookstore" /></a>
+      </figure>
+      <h1 id="title">Terasteel Bookstore</h1>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒 Carrinho (<span id="cart-count">0</span>)
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastrar Livro</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="informacoes.html">Informações</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="section active contato-section">
+      <h2>Fale Conosco</h2>
+      <p>Tem alguma dúvida, sugestão ou quer bater um papo? Use o formulário abaixo para nos enviar uma mensagem. Responderemos o mais rápido possível!</p>
+
+      <form id="form-contato" class="contato-form">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" pattern="\(\d{2}\) \d \d{4}-\d{4}" />
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" id="assunto" name="assunto" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="btn-primary btn-large">Enviar Mensagem</button>
+      </form>
+
+      <div id="mensagem-sucesso" style="display:none; margin-top: 20px; color: green; font-weight: 700;">
+        Obrigado pela sua mensagem! Entraremos em contato em breve.
+      </div>
+
+      <div class="contato-info" style="margin-top:40px; font-size:1.1rem; color:#5a007a;">
+        <p><strong>Email:</strong> contato@terasteelbookstore.com</p>
+        <p><strong>Telefone:</strong> (11) 91234-5678</p>
+        <p><strong>Endereço:</strong> Rua das Livrarias, 123 - Centro, São Paulo, SP</p>
+        <p>Estamos ansiosos para ouvir você!</p>
+      </div>
+
+      <div class="redes-sociais" style="margin-top:30px;">
+        <p>Siga-nos nas redes sociais:</p>
+        <ul style="list-style:none; padding:0; display:flex; gap:15px;">
+          <li><a href="#" title="Instagram" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" title="Facebook" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" title="Twitter" aria-label="Twitter">Twitter</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('form-contato').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('mensagem-sucesso').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

@@ -1,47 +1,209 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terasteel Bookstore</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon" />
 </head>
 <body>
   <header>
-    <div class="container">
-      <figure class="logo"><img src="./assets/logo.png" alt="Terasteel Bookstore"></figure>
+    <div class="container header-content">
+      <figure class="logo">
+        <img src="./assets/logo.png" alt="Terasteel Bookstore" />
+      </figure>
       <h1 id="title">Terasteel Bookstore</h1>
       <div class="cart-icon" onclick="toggleCart()">
         🛒 Carrinho (<span id="cart-count">0</span>)
       </div>
     </div>
   </header>
-  
+
   <nav>
     <div class="container">
       <ul>
-        <li><a href="#home" onclick="showSection('home')">Início</a></li>
-        <li><a href="#books" onclick="showSection('books')">Livros</a></li>
+       <li><a href="index.html">Início</a></li>
+      <li><a href="cadastro.html">Cadastrar Livro</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="informacoes.html">Informações</a></li>
+
+
       </ul>
     </div>
   </nav>
 
   <main class="container">
-    <!-- Seção Inicial -->
     <section id="home" class="section active">
-      <h2>Bem-vindo à nossa Livraria Online!</h2>
-      <p>Descubra os melhores livros com os melhores preços. Navegue pelo nosso catálogo e adicione seus favoritos ao carrinho!</p>
-      <button onclick="showSection('books')" class="btn-primary">Ver Catálogo</button>
+      <div class="hero">
+        <div class="hero-content">
+          <span class="hero-badge">Black Week Terasteel</span>
+          <h2>
+            Os melhores livros com até <span class="highlight">70% OFF</span>
+          </h2>
+          <p class="hero-subtitle">
+            Fantasia, terror, autoajuda, ficção científica, clássicos e mangás para você maratonar leitura pagando menos nesta semana especial.
+          </p>
+          <ul class="hero-highlights">
+            <li>Descontos exclusivos em títulos selecionados.</li>
+            <li>Carrinho inteligente com resumo do pedido.</li>
+            <li>Projeto acadêmico com experiência real de e-commerce.</li>
+          </ul>
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="setPromoFilter(true); setCategoryFilter('todos'); showSection('books')">
+              Ver promoções Black Friday
+            </button>
+            <button class="btn-secondary" onclick="setPromoFilter(false); setCategoryFilter('todos'); showSection('books')">
+              Ver catálogo completo
+            </button>
+          </div>
+        </div>
+        <div class="hero-countdown">
+          <p class="countdown-title">Termina em:</p>
+          <div class="countdown-boxes">
+            <div class="count-box">
+              <span id="cd-days">00</span>
+              <small>Dias</small>
+            </div>
+            <div class="count-box">
+              <span id="cd-hours">00</span>
+              <small>Horas</small>
+            </div>
+            <div class="count-box">
+              <span id="cd-minutes">00</span>
+              <small>Min</small>
+            </div>
+            <div class="count-box">
+              <span id="cd-seconds">00</span>
+              <small>Seg</small>
+            </div>
+          </div>
+          <span class="countdown-badge">Até 70% OFF</span>
+        </div>
+      </div>
+
+      <section class="benefits">
+        <div class="benefit-card">
+          <h3>Grandes descontos</h3>
+          <p>Ofertas de até 70% em livros selecionados durante a Black Week.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Vários gêneros</h3>
+          <p>Fantasia, terror, autoajuda, ficção científica, mangás e clássicos.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Compras</h3>
+          <p>Adicione ao carrinho e finalize para ver o resumo completo do pedido.</p>
+        </div>
+      </section>
+
+      <section class="categories-highlight">
+        <h2>Categorias em destaque</h2>
+        <div class="categories-grid">
+          <article class="category-card" onclick="setCategoryFilter('Fantasia'); setPromoFilter(false); showSection('books')">
+            <h3>Fantasia</h3>
+            <p>Mundos mágicos, heróis épicos e grandes aventuras.</p>
+          </article>
+          <article class="category-card" onclick="setCategoryFilter('Terror'); setPromoFilter(false); showSection('books')">
+            <h3>Terror</h3>
+            <p>Histórias sombrias, assustadoras e cheias de suspense.</p>
+          </article>
+          <article class="category-card" onclick="setCategoryFilter('Autoajuda'); setPromoFilter(false); showSection('books')">
+            <h3>Autoajuda</h3>
+            <p>Livros para evoluir, mudar hábitos e crescer.</p>
+          </article>
+          <article class="category-card" onclick="setCategoryFilter('Ficção Científica'); setPromoFilter(false); showSection('books')">
+            <h3>Ficção Científica</h3>
+            <p>Universos futuristas, tecnologia e novas realidades.</p>
+          </article>
+          <article class="category-card" onclick="setCategoryFilter('Clássico'); setPromoFilter(false); showSection('books')">
+            <h3>Clássicos</h3>
+            <p>Obras que marcaram a história da literatura.</p>
+          </article>
+          <article class="category-card" onclick="setCategoryFilter('Mangá'); setPromoFilter(false); showSection('books')">
+            <h3>Mangás</h3>
+            <p>Quadrinhos japoneses cheios de ação e emoção.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <h2>Como funciona a Terasteel Bookstore</h2>
+        <div class="steps">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Escolha seus livros</h3>
+            <p>Navegue pelas categorias e encontre os títulos que mais combinam com você.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Adicione ao carrinho</h3>
+            <p>Clique em “Adicionar ao carrinho” e acompanhe o total em tempo real.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Finalize</h3>
+            <p>Clique em “Finalizar compra” e veja o resumo completo do pedido.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <h2>Avaliações dos leitores</h2>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <h3 class="review-name">Ana Souza</h3>
+            <p class="review-stars">⭐⭐⭐⭐⭐</p>
+            <p class="review-text">“Adorei a organização da loja e as promoções de fantasia, ficou muito fácil montar meu carrinho.”</p>
+          </article>
+          <article class="review-card">
+            <h3 class="review-name">Carlos Lima</h3>
+            <p class="review-stars">⭐⭐⭐⭐</p>
+            <p class="review-text">“Sistema simples e direto, o resumo do carrinho ajuda muito a visualizar o total da compra.”</p>
+          </article>
+          <article class="review-card">
+            <h3 class="review-name">Mariana Oliveira</h3>
+            <p class="review-stars">⭐⭐⭐⭐⭐</p>
+            <p class="review-text">“Gostei demais das ofertas de Black Friday e da variedade de gêneros disponíveis.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-mini">
+        <h2>Sobre a Terasteel Bookstore</h2>
+        <p>
+          A Terasteel Bookstore é uma livraria online criada como projeto acadêmico,
+          focada em oferecer uma experiência completa de navegação, filtros, carrinho e simulação de compras.
+        </p>
+      </section>
     </section>
 
-    <!-- Seção de Livros -->
     <section id="books" class="section">
       <h2>Catálogo de Livros</h2>
+      <div class="filters">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar por título, autor ou categoria..."
+            oninput="searchBooks(this.value)"
+          />
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Categorias:</span>
+          <button class="btn-primary" onclick="setCategoryFilter('todos'); setPromoFilter(false);">Todos</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Fantasia'); setPromoFilter(false);">Fantasia</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Terror'); setPromoFilter(false);">Terror</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Autoajuda'); setPromoFilter(false);">Autoajuda</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Ficção Científica'); setPromoFilter(false);">Ficção Científica</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Clássico'); setPromoFilter(false);">Clássicos</button>
+          <button class="btn-primary" onclick="setCategoryFilter('Mangá'); setPromoFilter(false);">Mangás</button>
+        </div>
+      </div>
       <div id="books-grid" class="books-grid"></div>
     </section>
+  </main>
 
-  <!-- Carrinho -->
   <div id="cart" class="cart-sidebar">
     <div class="cart-header">
       <h3>Carrinho de Compras</h3>
@@ -49,10 +211,9 @@
     </div>
     <div id="cart-items" class="cart-items"></div>
     <div class="cart-footer">
-      <div class="cart-total">
-        Total: R$ <span id="cart-total">0.00</span>
-      </div>
-      <button onclick="checkout()" class="btn-primary">Finalizar Compra</button>
+      <div class="cart-total">Total: R$ <span id="cart-total">0.00</span></div>
+      <button onclick="checkout()" class="btn-primary">Finalizar compra</button>
+      <p class="cart-disclaimer">Pagamento simulado para fins de projeto acadêmico.</p>
     </div>
   </div>
 
@@ -63,5 +224,43 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 2);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const dEl = document.getElementById("cd-days");
+      const hEl = document.getElementById("cd-hours");
+      const mEl = document.getElementById("cd-minutes");
+      const sEl = document.getElementById("cd-seconds");
+
+      if (dEl && hEl && mEl && sEl) {
+        if (distance > 0) {
+          dEl.textContent = String(days).padStart(2, "0");
+          hEl.textContent = String(hours).padStart(2, "0");
+          mEl.textContent = String(minutes).padStart(2, "0");
+          sEl.textContent = String(seconds).padStart(2, "0");
+        } else {
+          dEl.textContent = "00";
+          hEl.textContent = "00";
+          mEl.textContent = "00";
+          sEl.textContent = "00";
+        }
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
+
+

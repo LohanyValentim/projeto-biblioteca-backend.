@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finalizar Compra - Terasteel Bookstore</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <figure class="logo">
+        <a href="index.html"><img src="./assets/logo.png" alt="Terasteel Bookstore" /></a>
+      </figure>
+      <h1 id="title">Terasteel Bookstore</h1>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒 Carrinho (<span id="cart-count">0</span>)
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+       <li><a href="index.html">Início</a></li>
+       <li><a href="cadastro.html">Cadastrar Livro</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="informacoes.html">Informações</a></li>
+
+
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="checkout-section">
+      <h2>Finalizar Compra</h2>
+
+      <div id="checkout-summary" class="checkout-summary">
+        <!-- Resumo do pedido vai aparecer aqui -->
+      </div>
+
+        <form id="checkout-form" class="checkout-form">
+        <h3>Informações do comprador</h3>
+        <label for="name">Nome completo:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="address">Endereço:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+         <h3>Forma de Pagamento</h3>
+        <div class="payment-options">
+          <label>
+            <input type="radio" name="payment" value="pix" checked />
+            PIX
+          </label>
+          <label>
+            <input type="radio" name="payment" value="boleto" />
+            Boleto
+          </label>
+          <label>
+            <input type="radio" name="payment" value="cartao" />
+            Cartão
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary btn-large">Concluir compra</button>
+      </form>
+
+      <div id="confirmation-message" class="confirmation-message" style="display:none;">
+        <h3>🎉 Obrigado pela sua compra! 🎉</h3>
+        <p>Seu pedido foi registrado com sucesso.</p>
+        <a href="index.html#home" class="btn-secondary">Voltar para a loja</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Carrinho sidebar reutilizado -->
+  <div id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Carrinho de Compras</h3>
+      <button onclick="toggleCart()" class="close-btn">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R$ <span id="cart-total">0.00</span></div>
+      <button onclick="checkoutRedirect()" class="btn-primary">Finalizar compra (simulação)</button>
+      <p class="cart-disclaimer">Pagamento simulado para fins de projeto acadêmico.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Terasteel Bookstore. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

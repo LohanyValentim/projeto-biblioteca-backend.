@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Livro - Terasteel Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <figure class="logo">
+        <a href="index.html"><img src="./assets/logo.png" alt="Terasteel Bookstore"></a>
+      </figure>
+      <h1 id="title">Terasteel Bookstore</h1>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒 Carrinho (<span id="cart-count">0</span>)
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html#home" onclick="showSection('home')">Início</a></li>
+        <li><a href="index.html#books" onclick="showSection('books')">Catálogo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="book-details" class="book-details-section">
+      <!-- Conteúdo carregado via JavaScript -->
+    </section>
+  </main>
+
+  <!-- CARRINHO SIDEBAR (igual ao index) -->
+  <div id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Carrinho de Compras</h3>
+      <button onclick="toggleCart()" class="close-btn">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R$ <span id="cart-total">0.00</span></div>
+      <button onclick="checkout()" class="btn-primary">Finalizar compra (simulação)</button>
+      <p class="cart-disclaimer">Pagamento simulado para fins de projeto acadêmico.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Terasteel Bookstore. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="detalhe.js"></script>
+</body>
+</html>
