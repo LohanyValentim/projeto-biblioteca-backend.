@@ -1,15 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Pool } = require('pg');
 
-// Configuração da conexão com o banco PostgreSQL
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'livraria',
-  password: '123456',
-  port: 5432,
-});
 
 // Cadastrar livro
 router.post('/', async (req, res) => {

@@ -206,10 +206,39 @@ function showSection(sectionId) {
   }
 }
 
+<<<<<<< HEAD
 // FILTROS
 function setCategoryFilter(categoria) {
   currentFilter.categoria = categoria;
   renderBooks();
+=======
+// Carregar livros do servidor
+async function loadBooks() {
+    try {
+        const response = await fetch('http://localhost:3000/livros');
+        books = await response.json();
+        displayBooks();
+    } catch (error) {
+        console.error('Erro ao carregar livros:', error);
+        // Dados de exemplo se não conseguir conectar ao servidor
+        books = [
+            {id: 1, nome: 'Dom Casmurro', preco: 25.90, descricao: 'Clássico da literatura brasileira', estoque: 10},
+            {id: 2, nome: 'O Cortiço', preco: 22.50, descricao: 'Romance naturalista brasileiro', estoque: 8},
+            {id: 3, nome: '1984', preco: 35.00, descricao: 'Distopia de George Orwell', estoque: 15},
+            {id: 4, nome: 'O homem mais rico da Babilônia', preco: 25.50, descricao: 'Clássico que ajuda a solucionar problemas finaceiros', estoque: 3},
+            {id: 5, nome: 'Acuado, Escrevo!', preco: 30.00, descricao: 'Poesia brasileira', estoque: 1},
+            {id: 6, nome: 'Fortaleza Digital', preco: 40.00, descricao: 'Ficção científica da era digital', estoque: 1},
+            {id: 7, nome: 'Harry Potter e a pedra filosofal', preco: 25.00, descricao: 'Ficção', estoque: 2},
+            {id: 8, nome: 'Biblia', preco: 20.00, descricao: 'Livro sagrado', estoque: 5}, 
+            {id: 9, nome: 'JavaScript', preco: 35.00, descricao: 'Aprenda JavaScript', estoque: 3},
+            {id: 10, nome: 'CSS', preco: 25.50, descricao: 'CSS-3 Como estilizar seus sites', estoque: 5},
+            {id: 11, nome: 'Aprenda inglês para turismo', preco: 30.00, descricao: 'Didático de inglês', estoque: 1},
+            {id: 12, nome: 'Kimetsu no Yaiba vol1', preco: 20.00, descricao: 'Mangá', estoque: 1},
+
+        ];
+        displayBooks();
+    }
+>>>>>>> fa8c85121d4c6d7eac6c60e32960c84559e8a78e
 }
 
 function setPromoFilter(onlyPromo) {

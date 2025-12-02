@@ -763,6 +763,7 @@ footer {
     flex-direction: column;
     padding: 24px 20px;
   }
+<<<<<<< HEAD
 
   .hero-content {
     max-width: 100%;
@@ -1633,3 +1634,7 @@ nav ul li a:focus {
 
 
 
+=======
+  
+}
+>>>>>>> fa8c85121d4c6d7eac6c60e32960c84559e8a78e
